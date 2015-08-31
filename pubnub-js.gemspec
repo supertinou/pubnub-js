@@ -13,6 +13,9 @@ Gem::Specification.new do |spec|
   spec.description   = "The PubNub JavaScript SDK packaged for the Rails 3.1+ asset pipeline"
   spec.homepage      = "https://github.com/supertinou/pubnub-js"
   spec.license       = "MIT"
+
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   spec.add_dependency "railties", ">= 3.1"
